@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './TodoApp.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faToggleOn, faToggleOff } from '@fortawesome/free-solid-svg-icons';
 
 function TodoApp() {
   const [todos, setTodos] = useState([]);
@@ -32,9 +32,9 @@ function TodoApp() {
     if (inputSubject !== '' && inputBody !== '') {
       const newTodo = {
         id: Date.now(),
-        subject: inputSubject,
-        body: inputBody,
-        completed: false,
+        title: inputSubject,
+        description: inputBody,
+        status: false,
       };
       setTodos([...todos, newTodo]);
       setInputSubject('');
@@ -47,7 +47,7 @@ function TodoApp() {
       if (todo.id === id) {
         return {
           ...todo,
-          completed: !todo.completed,
+          status: !todo.status,
         };
       }
       return todo;
@@ -71,35 +71,45 @@ function TodoApp() {
       <div className="input-container">
         <input
           type="text"
-          placeholder="Subject"
+          placeholder="Title"
           value={inputSubject}
           onChange={handleSubjectChange}
         />
         <textarea
-          placeholder="Body"
+          placeholder="Description"
           value={inputBody}
           onChange={handleBodyChange}
         ></textarea>
         <button onClick={handleAddTodo}>Add Task</button>
       </div>
-      <ul className="todo-list">
+            <ul className="todo-list">
         {todos.map((todo) => (
-          <li key={todo.id} className={todo.completed ? 'completed' : ''}>
+          <li key={todo.id} className={todo.status ? 'completed' : ''}>
             <div className="todo-item">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={todo.completed}
-                  onChange={() => handleToggleTodo(todo.id)}
-                />
-                <span className="subject">{todo.subject}</span>
-              </label>
-              <p>{todo.body}</p>
-              <button onClick={() => handleDeleteTodo(todo.id)}>
-                <FontAwesomeIcon icon={faTrashAlt} />
-              </button>
-              <div>
+              <div className="toggle-container">
+                <button
+                  className="toggle-button"
+                  onClick={() => handleToggleTodo(todo.id)}
+                >
+                  <FontAwesomeIcon
+                    icon={todo.status ? faToggleOn : faToggleOff}
+                  />
+                </button>
+              </div>
+              <div className="todo-content">
+                <span className="subject">{todo.title}</span>
+                <p className="todobody">{todo.description}</p>
+              </div>
+              <div className="date-container">
                 <span className="date">{formatDate(todo.id)}</span>
+              </div>
+              <div className="delete-container">
+                <button
+                  className="delete-button"
+                  onClick={() => handleDeleteTodo(todo.id)}
+                >
+                  <FontAwesomeIcon icon={faTrashAlt} />
+                </button>
               </div>
             </div>
           </li>

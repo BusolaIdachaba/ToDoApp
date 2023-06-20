@@ -69,6 +69,9 @@
 .completed .subject {
   text-decoration: line-through;
 }
+.completed .todobody {
+  text-decoration: line-through;
+}
 
 .todo-item .date {
   font-size: 8px;
@@ -128,4 +131,18 @@
 
 .input-container button:hover {
   background-color: darkorange;
+}
+.toggle-container,
+.delete-container, .date-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-button,
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: navy;
+  margin-right: 10px;
 }
