@@ -1,0 +1,131 @@
+.todo-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #050A30;
+  color: white;
+  padding: 20px;
+}
+
+.todo-app h1 {
+  margin-top: 0;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.input-container input[type='text'],
+.input-container textarea {
+  margin-right: 10px;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  background-color: #05445E;
+  padding: 10px;
+}
+
+.todo-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-item label {
+  display: flex;
+  align-items: center;
+}
+
+.todo-item .subject {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.todo-item p {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.todo-item button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.completed .subject {
+  text-decoration: line-through;
+}
+
+.todo-item .date {
+  font-size: 8px;
+  margin-top: 5px;
+}
+
+.todo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.todo-item .subject {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.todo-item p {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.todo-item .meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.todo-item .meta span {
+  font-size: 12px;
+}
+
+.todo-item .meta button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+.input-container input[type='text'],
+.input-container textarea {
+  width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.input-container button {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: darkorange;
+}
